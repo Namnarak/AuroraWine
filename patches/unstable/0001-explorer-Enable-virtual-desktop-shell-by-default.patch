@@ -1,7 +1,7 @@
-From 3aff5ff4644a603d23522a90e49126bcdddc92a6 Mon Sep 17 00:00:00 2001
+From e79fb51f6843a6dcf3014bced3f82abac7fbb367 Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
 Date: Sun, 30 Aug 2026 22:08:32 +0200
-Subject: [PATCH 09/13] explorer: Enable virtual desktop shell by default
+Subject: [PATCH 01/16] explorer: Enable virtual desktop shell by default
 
 This should make managing multiple windows of Roblox Studio in virtual
 desktop mode more convenient.
@@ -12,7 +12,7 @@ Signed-off-by: effects3d <effects3dee@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/programs/explorer/desktop.c b/programs/explorer/desktop.c
-index ce70c5dd79d..3544f6b1fbc 100644
+index ce70c5d..3544f6b 100644
 --- a/programs/explorer/desktop.c
 +++ b/programs/explorer/desktop.c
 @@ -928,7 +928,7 @@ static BOOL get_default_enable_shell( const WCHAR *name )

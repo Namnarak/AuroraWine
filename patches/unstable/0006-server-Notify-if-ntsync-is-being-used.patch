@@ -1,7 +1,7 @@
-From 69d7f16cf2833672219b2c084f098830a253bca8 Mon Sep 17 00:00:00 2001
+From 902f2acfbd3b3af897e11d32b47fa1e35b849162 Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
 Date: Sun, 30 Aug 2026 22:11:15 +0200
-Subject: [PATCH 10/13] server: Notify if ntsync is being used
+Subject: [PATCH 06/16] server: Notify if ntsync is being used
 
 Source: Proton-Wine commit: b62913d8cab7be7452678d252295c96cdcf3f5a6
 Signed-off-by: effects3d <effects3dee@gmail.com>
@@ -10,7 +10,7 @@ Signed-off-by: effects3d <effects3dee@gmail.com>
  1 file changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/server/inproc_sync.c b/server/inproc_sync.c
-index 522d9a4e320..4f6a35de0f6 100644
+index 522d9a4..4f6a35d 100644
 --- a/server/inproc_sync.c
 +++ b/server/inproc_sync.c
 @@ -47,7 +47,13 @@

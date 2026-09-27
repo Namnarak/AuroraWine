@@ -1,12 +1,12 @@
-From cd200b3fb6de1c10224268cf260d7e4e15bc4e8f Mon Sep 17 00:00:00 2001
+From cb90926a1c817494fb8229e96c7f1680d5ee2e00 Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
 Date: Sun, 30 Aug 2026 21:53:21 +0200
-Subject: [PATCH 02/13] winex11: Use XFixes to hide cursor before warping it.
+Subject: [PATCH 11/16] winex11: Use XFixes to hide cursor before warping it.
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Fixes cursor not being warped when panning Roblox Studio’s viewport
+Fixes cursor not being locked when panning Roblox Studio’s viewport
 camera under Xwayland.
 
 Source: Proton-Wine commit: 3946d2fe5e9b0a31223eccce0f05ff7b34e2f92a
@@ -18,10 +18,10 @@ Signed-off-by: effects3d <effects3dee@gmail.com>
  3 files changed, 9 insertions(+)
 
 diff --git a/dlls/winex11.drv/mouse.c b/dlls/winex11.drv/mouse.c
-index f9d849dfd70..cf6c56d3997 100644
+index cb79ed5..acc5bc8 100644
 --- a/dlls/winex11.drv/mouse.c
 +++ b/dlls/winex11.drv/mouse.c
-@@ -50,6 +50,7 @@ MAKE_FUNCPTR(XcursorLibraryLoadCursor);
+@@ -60,6 +60,7 @@ MAKE_FUNCPTR(XcursorLibraryLoadCursor);
  #define OEMRESOURCE
  
  #include "x11drv.h"
@@ -29,7 +29,7 @@ index f9d849dfd70..cf6c56d3997 100644
  #include "winreg.h"
  #include "wine/server.h"
  #include "wine/debug.h"
-@@ -1363,8 +1364,10 @@ BOOL X11DRV_SetCursorPos( INT x, INT y )
+@@ -1447,8 +1448,10 @@ BOOL X11DRV_SetCursorPos( INT x, INT y )
          return FALSE;
      }
  
@@ -41,7 +41,7 @@ index f9d849dfd70..cf6c56d3997 100644
      if (!clipping_cursor)
          XUngrabPointer( data->display, CurrentTime );
 diff --git a/dlls/winex11.drv/x11drv_main.c b/dlls/winex11.drv/x11drv_main.c
-index 40dffc03901..82f93ddf0ff 100644
+index c13b977..5c0d2f7 100644
 --- a/dlls/winex11.drv/x11drv_main.c
 +++ b/dlls/winex11.drv/x11drv_main.c
 @@ -572,11 +572,13 @@ sym_not_found:
@@ -73,7 +73,7 @@ index 40dffc03901..82f93ddf0ff 100644
  
      if (!pXFixesQueryExtension(gdi_display, &event, &error))
 diff --git a/dlls/winex11.drv/xfixes.h b/dlls/winex11.drv/xfixes.h
-index f3beea5efed..6cd4e48425b 100644
+index f3beea5..6cd4e48 100644
 --- a/dlls/winex11.drv/xfixes.h
 +++ b/dlls/winex11.drv/xfixes.h
 @@ -27,9 +27,11 @@

@@ -1,12 +1,12 @@
-From 9d2e71fed2dc63f926768298c60e2d40456fd7a5 Mon Sep 17 00:00:00 2001
+From f7096e38a381ba20815ddbb2a2a0a506f31c24bd Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
 Date: Sun, 30 Aug 2026 22:01:20 +0200
-Subject: [PATCH 06/13] ntdll: Keep more LFH block groups alive.
+Subject: [PATCH 03/16] ntdll: Keep more LFH block groups alive.
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Fixes Roblox Studio’s playtesting load times getting longer after each
+Fixes Roblox Studio’s playtesting load times increasing after each
 run.
 
 Source: Proton-Wine commit: 31d70e4e5db26187763ba7980e38604204d1a971
@@ -16,7 +16,7 @@ Signed-off-by: effects3d <effects3dee@gmail.com>
  1 file changed, 8 insertions(+), 2 deletions(-)
 
 diff --git a/dlls/ntdll/heap.c b/dlls/ntdll/heap.c
-index feee54e0285..2adca7c5f43 100644
+index feee54e..2adca7c 100644
 --- a/dlls/ntdll/heap.c
 +++ b/dlls/ntdll/heap.c
 @@ -262,6 +262,9 @@ struct bin

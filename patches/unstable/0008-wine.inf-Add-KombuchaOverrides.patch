@@ -1,7 +1,7 @@
-From a98d474c165f21ca724ba931d19fd92fd5a7180d Mon Sep 17 00:00:00 2001
+From 2cde33731bdeccd55303130fffaeefb4de555aae Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
-Date: Sun, 30 Aug 2026 15:15:37 +0200
-Subject: [PATCH 03/13] loader: Add KombuchaOverrides
+Date: Sun, 27 Sep 2026 14:41:16 +0200
+Subject: [PATCH 08/16] wine.inf: Add KombuchaOverrides
 
 Signed-off-by: effects3d <effects3dee@gmail.com>
 ---
@@ -9,7 +9,7 @@ Signed-off-by: effects3d <effects3dee@gmail.com>
  1 file changed, 20 insertions(+)
 
 diff --git a/loader/wine.inf.in b/loader/wine.inf.in
-index 965d3b261c2..22086265810 100644
+index 965d3b2..724a0db 100644
 --- a/loader/wine.inf.in
 +++ b/loader/wine.inf.in
 @@ -63,6 +63,7 @@ AddReg=\
@@ -28,7 +28,7 @@ index 965d3b261c2..22086265810 100644
 +[KombuchaOverrides]
 +; Prefer loading native msvcrt DLLs bundled with Studio and WebView2 for better compatibility with Wine.
 +; DLLs starting with 'api-ms-win-' cannot be overridden and are therefore not included.
-+; Upstream Wine refuses to load native ucrtbase, unless it's copied over to the Wine prefix. The downstream fork of Wine used in Proton includes a patch that addresses this.
++; Stock Wine refuses to load native ucrtbase, unless it's copied over to the Wine prefix. The fork of Wine used in Proton includes a patch that addresses this.
 +HKCU,Software\Wine\DllOverrides,"concrt140",0x2,"native,builtin"
 +HKCU,Software\Wine\DllOverrides,"msvcp140",0x2,"native,builtin"
 +HKCU,Software\Wine\DllOverrides,"msvcp140_1",0x2,"native,builtin"

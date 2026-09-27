@@ -1,0 +1,44 @@
+From 54d9b0e97a75c31dfe17905e75338678178d170e Mon Sep 17 00:00:00 2001
+From: effects3d <effects3dee@gmail.com>
+Date: Sun, 27 Sep 2026 15:13:50 +0200
+Subject: [PATCH 02/16] ntdll: Add kombucha_hacks
+
+Signed-off-by: effects3d <effects3dee@gmail.com>
+---
+ dlls/ntdll/unix/loader.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/dlls/ntdll/unix/loader.c b/dlls/ntdll/unix/loader.c
+index ebfb6af..5392f85 100644
+--- a/dlls/ntdll/unix/loader.c
++++ b/dlls/ntdll/unix/loader.c
+@@ -1846,6 +1846,18 @@ static ULONG_PTR get_image_address(void)
+     return 0;
+ }
+ 
++static void kombucha_hacks(void)
++{
++    // Fixes versions of Roblox Studio shipping mimalloc from crashing.
++    setenv("MIMALLOC_FORCE_REDIRECT", "1", 0 );
++
++    // Fixes ANGLE's Vulkan backend not rendering content when Vinegar's
++    // Vulkan layer is loaded.
++    if (strstr(main_argv[1], "msedgewebview2.exe")) {
++        unsetenv( "VK_LOADER_LAYERS_ENABLE" );
++    }
++}
++
+ /***********************************************************************
+  *           start_main_thread
+  */
+@@ -1854,6 +1866,7 @@ static void start_main_thread(void)
+     struct thread_data *data = virtual_alloc_first_thread_data();
+ 
+     server_init_process( data );
++    kombucha_hacks();
+     virtual_map_user_shared_data();
+     init_cpu_info();
+     init_files();
+-- 
+2.55.0
+
