@@ -7,7 +7,6 @@ on:
         options:
           - stable
           - unstable
-          - proton-stable
           - proton-unstable
       commit:
         type: string
@@ -71,7 +70,7 @@ jobs:
       - name: Fetch Sources
         run: |
           case ${{ inputs.patchset }} in
-            proton-stable|proton-unstable)
+            proton-unstable)
               export ORGANIZATION="ValveSoftware" ;;
             *)
               export ORGANIZATION="wine-mirror"
@@ -111,7 +110,7 @@ jobs:
           export x86_64_LDFLAGS="${x86_64_LDFLAGS} -Wl,-O1 -Wl,--sort-common -Wl,--as-needed"
           export LDFLAGS="${x86_64_LDFLAGS} -Wl,-z,relro -Wl,-z,now -Wl,-z,pack-relative-relocs"
           mkdir -p ${{ env.INSTALL }}
-          [ ${{ inputs.patchset }} = proton-stable ] || [ ${{ inputs.patchset }} = proton-unstable ] && ./autogen.sh
+          [ ${{ inputs.patchset }} = proton-unstable ] && ./autogen.sh
           ./configure \
             --disable-dxdiagn \
             --disable-mscoree \
@@ -141,7 +140,7 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           case ${{ inputs.patchset }} in
-            stable|proton-stable)
+            stable)
               export TAG="${{ inputs.patchset }}+$(date --utc +%Y%m%d%H%M%S)" ;;
             *)
               export TAG="${{ inputs.patchset }}"
@@ -153,7 +152,7 @@ jobs:
           XZ_OPT=-9 tar -Jcf "${NAME}.tar.xz" "${NAME}"
 
           case ${{ inputs.patchset }} in
-            proton-stable|proton-unstable)
+            proton-unstable)
               export WINE_VERSION="Proton-Wine" ;;
             *)
               export WINE_VERSION="Wine"
