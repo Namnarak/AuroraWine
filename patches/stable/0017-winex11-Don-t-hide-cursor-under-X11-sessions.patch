@@ -1,7 +1,10 @@
-From f9f7f3b2dd970a5230e503e21a3c35621c366a0f Mon Sep 17 00:00:00 2001
+From f1594f26f198f47d2591a0287089c564c0e79410 Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
-Date: Tue, 4 Aug 2026 20:24:21 +0200
-Subject: [PATCH 03/14] winex11: Add Xwayland check
+Date: Sun, 27 Sep 2026 13:46:54 +0200
+Subject: [PATCH 17/18] winex11: Don't hide cursor under X11 sessions
+
+Avoids issues with the cursor locking under X11 sessions. Requires
+"winex11: Use XFixes to hide cursor before warping it." patch.
 
 Signed-off-by: effects3d <effects3dee@gmail.com>
 ---
@@ -10,10 +13,10 @@ Signed-off-by: effects3d <effects3dee@gmail.com>
  2 files changed, 4 insertions(+)
 
 diff --git a/dlls/winex11.drv/x11drv.h b/dlls/winex11.drv/x11drv.h
-index abfbfda62a2..0c85a3b45ff 100644
+index 2b7e919..d40aedb 100644
 --- a/dlls/winex11.drv/x11drv.h
 +++ b/dlls/winex11.drv/x11drv.h
-@@ -486,6 +486,7 @@ extern BOOL use_primary_selection;
+@@ -487,6 +487,7 @@ extern BOOL use_primary_selection;
  extern BOOL use_system_cursors;
  extern BOOL grab_fullscreen;
  extern BOOL usexcomposite;
@@ -22,17 +25,17 @@ index abfbfda62a2..0c85a3b45ff 100644
  extern BOOL managed_mode;
  extern BOOL private_color_map;
 diff --git a/dlls/winex11.drv/x11drv_main.c b/dlls/winex11.drv/x11drv_main.c
-index b5aa3119fc7..e4669c6c7c0 100644
+index 5c0d2f7..9c181af 100644
 --- a/dlls/winex11.drv/x11drv_main.c
 +++ b/dlls/winex11.drv/x11drv_main.c
-@@ -70,6 +70,7 @@ BOOL usexrandr = TRUE;
+@@ -69,6 +69,7 @@ BOOL usexvidmode = TRUE;
+ BOOL usexrandr = TRUE;
  BOOL usexcomposite = TRUE;
- BOOL use_xfixes = FALSE;
  BOOL use_egl = TRUE;
 +BOOL xwayland = FALSE;
+ BOOL use_xfixes = FALSE;
  BOOL use_take_focus = TRUE;
  BOOL use_primary_selection = FALSE;
- BOOL use_system_cursors = TRUE;
 @@ -729,6 +730,8 @@ NTSTATUS __wine_unix_lib_init(void)
                     DisplayHeight( display, default_visual.screen ));
      X11DRV_Settings_Init();
@@ -43,5 +46,5 @@ index b5aa3119fc7..e4669c6c7c0 100644
      X11DRV_XF86VM_Init();
      /* initialize XRandR */
 -- 
-2.55.0
+2.56.0
 
