@@ -1,16 +1,15 @@
-From 902f2acfbd3b3af897e11d32b47fa1e35b849162 Mon Sep 17 00:00:00 2001
+From 789e9a6bdce97d09e630112bf78efaaf1b472206 Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
 Date: Sun, 30 Aug 2026 22:11:15 +0200
-Subject: [PATCH 06/16] server: Notify if ntsync is being used
+Subject: [PATCH 07/18] server: Notify if ntsync is unavailable
 
-Source: Proton-Wine commit: b62913d8cab7be7452678d252295c96cdcf3f5a6
 Signed-off-by: effects3d <effects3dee@gmail.com>
 ---
  server/inproc_sync.c | 8 +++++++-
  1 file changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/server/inproc_sync.c b/server/inproc_sync.c
-index 522d9a4..4f6a35d 100644
+index 522d9a4..05d240a 100644
 --- a/server/inproc_sync.c
 +++ b/server/inproc_sync.c
 @@ -47,7 +47,13 @@
@@ -21,13 +20,13 @@ index 522d9a4..4f6a35d 100644
 +    if (fd == -2) {
 +        fd = open( "/dev/ntsync", O_CLOEXEC | O_RDONLY );
 +
-+        if ( fd >= 0 ) {
-+            fprintf( stderr, "ntsync: up and running.\n" );
++        if ( fd < 0 ) {
++            fprintf( stderr, "kombucha: ntsync is unavailable, performance will be affected.\n");
 +        }
 +    }
      return fd;
  }
  
 -- 
-2.55.0
+2.56.0
 

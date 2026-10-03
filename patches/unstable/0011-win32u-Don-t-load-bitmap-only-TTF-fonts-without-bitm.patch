@@ -1,7 +1,7 @@
-From b083aa11a6fcb0a6d5432f9ac462c9344b6b3172 Mon Sep 17 00:00:00 2001
+From e54630a4dc7e9db53289eb45de8da5244afd8a7c Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
 Date: Sun, 30 Aug 2026 21:57:53 +0200
-Subject: [PATCH 07/16] =?UTF-8?q?win32u:=20Don=E2=80=99t=20load=20bitmap?=
+Subject: [PATCH 11/18] =?UTF-8?q?win32u:=20Don=E2=80=99t=20load=20bitmap?=
  =?UTF-8?q?=20only=20TTF=20fonts=20without=20bitmap=20table.?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -60,5 +60,5 @@ index ce89912..bf49cd6 100644
      }
      else
 -- 
-2.55.0
+2.56.0
 

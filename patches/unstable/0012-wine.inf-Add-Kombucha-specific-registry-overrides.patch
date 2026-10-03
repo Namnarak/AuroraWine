@@ -1,7 +1,7 @@
-From 2cde33731bdeccd55303130fffaeefb4de555aae Mon Sep 17 00:00:00 2001
+From 7a3c7fe1aa2387ad338d828f1288dce428583e42 Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
 Date: Sun, 27 Sep 2026 14:41:16 +0200
-Subject: [PATCH 08/16] wine.inf: Add KombuchaOverrides
+Subject: [PATCH 12/18] wine.inf: Add Kombucha-specific registry overrides
 
 Signed-off-by: effects3d <effects3dee@gmail.com>
 ---
@@ -9,7 +9,7 @@ Signed-off-by: effects3d <effects3dee@gmail.com>
  1 file changed, 20 insertions(+)
 
 diff --git a/loader/wine.inf.in b/loader/wine.inf.in
-index 965d3b2..724a0db 100644
+index 965d3b2..c6bb2df 100644
 --- a/loader/wine.inf.in
 +++ b/loader/wine.inf.in
 @@ -63,6 +63,7 @@ AddReg=\
@@ -41,8 +41,8 @@ index 965d3b2..724a0db 100644
 +; WebView2 requires DirectComposition on Windows versions >=8.1, which Wine doesn't support, so spoof the Windows version to 8.
 +; As of 2026-08-30, the dcomp-DCompositionCreateDevice2 patchset in Wine Staging causes WebView2 to always flicker when the Creator Store tab isn't selected.
 +HKCU,Software\Wine\AppDefaults\msedgewebview2.exe,"Version",0x2,"win8"
-+; WebView2 uses Arial as its font, which is proprietary and doesn't come pre-installed on most Linux distributions, so force it to use Liberation Sans.
-+HKCU,Software\Wine\Fonts\Replacements,"Arial",0x2,"Liberation Sans
++; WebView2 uses Arial as its font, which is proprietary and doesn't come pre-installed on most Linux distributions, so force it to use Sans.
++HKCU,Software\Wine\Fonts\Replacements,"Arial",0x2,"Sans"
 -- 
-2.55.0
+2.56.0
 

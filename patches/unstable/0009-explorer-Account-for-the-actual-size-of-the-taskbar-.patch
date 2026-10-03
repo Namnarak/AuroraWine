@@ -1,7 +1,7 @@
-From 7b0bcfe5fec079c42c17a36a79cd2b4e76f72d8f Mon Sep 17 00:00:00 2001
+From 6c591b29dc06c2c5160bbf10d5612532dbaa517e Mon Sep 17 00:00:00 2001
 From: Andrea Faulds <ajf@ajf.me>
 Date: Fri, 21 Aug 2026 01:47:05 +0200
-Subject: [PATCH 15/16] explorer: Account for the actual size of the taskbar if
+Subject: [PATCH 09/18] explorer: Account for the actual size of the taskbar if
  it is visible
 
 This means that, in desktop mode, appbars like the Microsoft Office
@@ -106,5 +106,5 @@ index 69d3ec6..175bc4d 100644
  {
      switch (msg)
 -- 
-2.55.0
+2.56.0
 

@@ -1,7 +1,7 @@
-From 4a7852c241f0e330e6136716f668f8c951804087 Mon Sep 17 00:00:00 2001
+From cc70c98af84468a1aa2cd514af357c00274e8c5e Mon Sep 17 00:00:00 2001
 From: Andrea Faulds <ajf@ajf.me>
 Date: Fri, 21 Aug 2026 01:47:27 +0200
-Subject: [PATCH 16/16] explorer: Update system work area rect to exclude
+Subject: [PATCH 10/18] explorer: Update system work area rect to exclude
  taskbar and appbars
 
 Without this, while appbars are positioned correctly, maximized windows
@@ -74,5 +74,5 @@ index eb4aec4..1e85624 100644
 +    update_work_area();
  }
 -- 
-2.55.0
+2.56.0
 

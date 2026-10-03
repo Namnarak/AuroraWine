@@ -1,7 +1,7 @@
-From ef198b5a611918b866fefd548149bb68a7f6fea0 Mon Sep 17 00:00:00 2001
+From c546dff92d09462bbc997517478f2c60977d9973 Mon Sep 17 00:00:00 2001
 From: Andrea Faulds <ajf@ajf.me>
 Date: Fri, 21 Aug 2026 00:43:14 +0200
-Subject: [PATCH 14/16] win32u: Apply work area changes to virtual desktop
+Subject: [PATCH 08/18] win32u: Apply work area changes to virtual desktop
  monitor serverwide
 
 Before this commit:
@@ -140,5 +140,5 @@ index 6ed5b77..b24f67a 100644
      }
  
 -- 
-2.55.0
+2.56.0
 
