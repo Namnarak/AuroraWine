@@ -149,6 +149,7 @@ jobs:
           export NAME="kombucha-${TAG}"
           mv "${{ env.INSTALL }}" "${NAME}"
           rm -rf "${NAME}"/share/{applications,man}
+          strip --strip-unneeded "${NAME}"/bin/* "${NAME}"/lib/wine/*/*
           XZ_OPT=-9 tar -Jcf "${NAME}.tar.xz" "${NAME}"
 
           case ${{ inputs.patchset }} in
