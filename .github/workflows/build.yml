@@ -146,7 +146,7 @@ jobs:
               export TAG="${{ inputs.patchset }}"
           esac
 
-          export NAME="kombucha-${TAG}"
+          export NAME="aurorawine-${TAG}"
           mv "${{ env.INSTALL }}" "${NAME}"
           rm -rf "${NAME}"/share/{applications,man}
           strip --strip-unneeded "${NAME}"/bin/* "${NAME}"/lib/wine/*/*
