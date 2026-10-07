@@ -1,6 +1,6 @@
-# Aurora Kombucha
+# AuroraWine
 
-Aurora Kombucha is the Aurora-maintained fork of [vinegarhq/kombucha](https://github.com/vinegarhq/kombucha), used as the managed Wine runtime for Aurora Studio.
+AuroraWine is the Aurora-maintained Wine runtime fork of [vinegarhq/kombucha](https://github.com/vinegarhq/kombucha), used as the managed Wine runtime for Aurora Studio.
 
 It preserves the upstream LGPL-2.1 license and patch history. Aurora Studio downloads stable runtime releases from this fork so it does not depend on a Vinegar installation.
 
