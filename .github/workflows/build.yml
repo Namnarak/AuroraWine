@@ -160,4 +160,9 @@ jobs:
           esac
 
           [ ${{ inputs.patchset }} = unstable ] || [ ${{ inputs.patchset }} = proton-unstable ] && gh release delete --cleanup-tag "${TAG}"
-          gh release create --notes "Built from ${WINE_VERSION} commit ${{ inputs.commit }}." --prerelease --title "${TAG}" "${TAG}" "${NAME}.tar.xz"
+          case ${{ inputs.patchset }} in
+            stable)
+              gh release create --notes "Aurora Kombucha stable runtime. Built from ${WINE_VERSION} commit ${{ inputs.commit }}. Based on vinegarhq/kombucha under LGPL-2.1." --title "${TAG}" "${TAG}" "${NAME}.tar.xz" ;;
+            *)
+              gh release create --notes "Aurora Kombucha prerelease runtime. Built from ${WINE_VERSION} commit ${{ inputs.commit }}. Based on vinegarhq/kombucha under LGPL-2.1." --prerelease --title "${TAG}" "${TAG}" "${NAME}.tar.xz" ;;
+          esac

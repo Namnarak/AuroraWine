@@ -1,6 +1,10 @@
-# Kombucha
+# Aurora Kombucha
 
-This repository serves as the place to fetch customized Wine builds for Vinegar.
+Aurora Kombucha is the Aurora-maintained fork of [vinegarhq/kombucha](https://github.com/vinegarhq/kombucha), used as the managed Wine runtime for Aurora Studio.
+
+It preserves the upstream LGPL-2.1 license and patch history. Aurora Studio downloads stable runtime releases from this fork so it does not depend on a Vinegar installation.
+
+Upstream Kombucha serves as the place to fetch customized Wine builds for Vinegar.
 
 These Wine builds are patched to fix numerous issues with Roblox Studio that are
 otherwise non-existent on Windows. Some of these issues are caused by Wine itself,
