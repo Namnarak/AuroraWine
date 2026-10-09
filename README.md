@@ -40,3 +40,19 @@ Builds of Kombucha labeled under "proton-unstable" are only meant as a stop-gap 
 for issues that are present in the aforementioned flavors but aren't in the Wine fork
 included in Proton. Fixes from said fork are expected to the ported over to "unstable"
 and later "stable". Do not expect this flavor to be maintained in the long term.
+
+---
+
+<!-- CYTECH_STAR_HISTORY:START -->
+
+## Star History
+
+<a href="https://star-history.dera.page/#Namnarak/AuroraWine&type=date&legend=top-left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=Namnarak/AuroraWine&type=date&legend=top-left&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=Namnarak/AuroraWine&type=date&legend=top-left" />
+    <img alt="GitHub star history for Namnarak/AuroraWine" src="https://star-history.dera.page/svg?repos=Namnarak/AuroraWine&type=date&legend=top-left" width="800" />
+  </picture>
+</a>
+
+<!-- CYTECH_STAR_HISTORY:END -->
