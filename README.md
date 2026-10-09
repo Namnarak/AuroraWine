@@ -1,4 +1,18 @@
-# AuroraWine
+<!-- CYTECH_README_REFRESH:START -->
+<div align="center">
+<a href="https://github.com/Namnarak/AuroraWine"><img width="100%" alt="AuroraWine banner" src="https://capsule-render.vercel.app/api?type=waving&color=0:181224,100:A855F7&height=210&section=header&text=AuroraWine&fontSize=40&fontColor=ffffff&fontAlignY=36&desc=Aurora-maintained%20Wine%20runtime%20for%20Aurora%20Studio&descAlignY=59&descSize=16"></a>
+
+<img alt="Project: Runtime Fork" src="https://img.shields.io/badge/PROJECT-Runtime%20Fork-A855F7?style=flat-square&labelColor=181224"> <img alt="Stack: Wine · Linux" src="https://img.shields.io/badge/STACK-Wine%20%C2%B7%20Linux-A855F7?style=flat-square&labelColor=181224">
+
+<a href="https://github.com/Namnarak/AuroraWine">Source</a> · <a href="https://github.com/Namnarak/AuroraWine/issues">Issues</a> · <a href="https://github.com/Namnarak/AuroraWine/releases">Releases</a>
+
+</div>
+<!-- CYTECH_README_REFRESH:END -->
+
+---
+
+> [!NOTE]
+> Based on [vinegarhq/kombucha](https://github.com/vinegarhq/kombucha); upstream license and patch attribution remain in place.
 
 AuroraWine is the Aurora-maintained Wine runtime fork of [vinegarhq/kombucha](https://github.com/vinegarhq/kombucha), used as the managed Wine runtime for Aurora Studio.
 
